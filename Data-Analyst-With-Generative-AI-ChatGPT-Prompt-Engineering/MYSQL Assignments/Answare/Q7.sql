@@ -1,0 +1,14 @@
+
+-- Q7 DDL
+CREATE TABLE facility (
+ Facility_ID INT,
+ Name VARCHAR(50),
+ State VARCHAR(50),
+ Country VARCHAR(50)
+);
+
+ALTER TABLE facility
+MODIFY Facility_ID INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE facility
+ADD city VARCHAR(50) NOT NULL AFTER Name;

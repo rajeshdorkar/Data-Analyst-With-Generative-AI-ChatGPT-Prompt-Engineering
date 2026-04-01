@@ -1,0 +1,18 @@
+
+-- Q12 Error Handling
+CREATE TABLE Emp_EH (
+ EmpID INT PRIMARY KEY,
+ EmpName VARCHAR(50),
+ EmailAddress VARCHAR(100)
+);
+
+DELIMITER $$
+CREATE PROCEDURE Insert_Emp_EH(IN id INT, IN name VARCHAR(50), IN email VARCHAR(100))
+BEGIN
+ DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+ BEGIN
+   SELECT 'Error occurred' AS Message;
+ END;
+ INSERT INTO Emp_EH VALUES (id, name, email);
+END$$
+DELIMITER ;
